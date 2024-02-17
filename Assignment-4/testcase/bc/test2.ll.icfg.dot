@@ -1,0 +1,41 @@
+digraph "ICFG" {
+	label="ICFG";
+
+	Node0x55f1c5e22a00 [shape=record,color=purple,label="{GlobalICFGNode0\nCopyStmt: [Var1 \<-- Var0]  \n i8* null \{ constant data \}\nAddrStmt: [Var10 \<-- Var11]  \n i32 1 \{ constant data \}\nAddrStmt: [Var22 \<-- Var23]  \n i32 0 \{ constant data \}\nAddrStmt: [Var4 \<-- Var5]  \nFunction: foo \nAddrStmt: [Var16 \<-- Var17]  \nFunction: main \nAddrStmt: [Var28 \<-- Var29]  \nFunction: svf_assert }"];
+	Node0x55f1c5e22a00 -> Node0x55f1c5d7cac0[style=solid];
+	Node0x55f1c5d7c8c0 [shape=record,color=yellow,label="{FunEntryICFGNode1 \{fun: foo\}}"];
+	Node0x55f1c5d7c8c0 -> Node0x55f1c5e26e20[style=solid];
+	Node0x55f1c5e26e20 [shape=record,color=black,label="{IntraICFGNode2 \{fun: foo\}\nAddrStmt: [Var8 \<-- Var9]  \n   %p.addr = alloca i32*, align 8 }"];
+	Node0x55f1c5e26e20 -> Node0x55f1c5e22d00[style=solid];
+	Node0x55f1c5e22d00 [shape=record,color=black,label="{IntraICFGNode3 \{fun: foo\}\nStoreStmt: [Var8 \<-- Var7]  \n   store i32* %p, i32** %p.addr, align 8 }"];
+	Node0x55f1c5e22d00 -> Node0x55f1c5e22e50[style=solid];
+	Node0x55f1c5e22e50 [shape=record,color=black,label="{IntraICFGNode4 \{fun: foo\}\nLoadStmt: [Var13 \<-- Var8]  \n   %0 = load i32*, i32** %p.addr, align 8 }"];
+	Node0x55f1c5e22e50 -> Node0x55f1c5e27110[style=solid];
+	Node0x55f1c5e27110 [shape=record,color=black,label="{IntraICFGNode5 \{fun: foo\}\nStoreStmt: [Var13 \<-- Var10]  \n   store i32 1, i32* %0, align 4 }"];
+	Node0x55f1c5e27110 -> Node0x55f1c5e27310[style=solid];
+	Node0x55f1c5e27310 [shape=record,color=black,label="{IntraICFGNode6 \{fun: foo\}\n   ret void }"];
+	Node0x55f1c5e27310 -> Node0x55f1c5e27510[style=solid];
+	Node0x55f1c5e27510 [shape=record,color=green,label="{FunExitICFGNode7 \{fun: foo\}|{<s0>0x55f1c5e1ef60}}"];
+	Node0x55f1c5e27510:s0 -> Node0x55f1c5d7be20[style=solid,color=blue];
+	Node0x55f1c5d7cac0 [shape=record,color=yellow,label="{FunEntryICFGNode8 \{fun: main\}}"];
+	Node0x55f1c5d7cac0 -> Node0x55f1c5e25470[style=solid];
+	Node0x55f1c5e25470 [shape=record,color=black,label="{IntraICFGNode9 \{fun: main\}\nAddrStmt: [Var19 \<-- Var20]  \n   %a = alloca i32, align 4 }"];
+	Node0x55f1c5e25470 -> Node0x55f1c5e25650[style=solid];
+	Node0x55f1c5e25650 [shape=record,color=black,label="{IntraICFGNode10 \{fun: main\}\nStoreStmt: [Var19 \<-- Var22]  \n   store i32 0, i32* %a, align 4 }"];
+	Node0x55f1c5e25650 -> Node0x55f1c5e25830[style=solid];
+	Node0x55f1c5e25830 [shape=record,color=red,label="{CallICFGNode11 \{fun: main\}\nCallPE: [Var7 \<-- Var19]  \n   call void @foo(i32* %a) |{<s0>0x55f1c5e1ef60}}"];
+	Node0x55f1c5e25830:s0 -> Node0x55f1c5d7c8c0[style=solid,color=red];
+	Node0x55f1c5d7be20 [shape=record,color=blue,label="{RetICFGNode12 \{fun: main\}}"];
+	Node0x55f1c5d7be20 -> Node0x55f1c5e25c80[style=solid];
+	Node0x55f1c5e25c80 [shape=record,color=black,label="{IntraICFGNode13 \{fun: main\}\nLoadStmt: [Var25 \<-- Var19]  \n   %0 = load i32, i32* %a, align 4 }"];
+	Node0x55f1c5e25c80 -> Node0x55f1c5e23570[style=solid];
+	Node0x55f1c5e23570 [shape=record,color=black,label="{IntraICFGNode14 \{fun: main\}\nCmpStmt: [Var26 \<-- (Var25 predicate32 Var10)]  \n   %cmp = icmp eq i32 %0, 1 }"];
+	Node0x55f1c5e23570 -> Node0x55f1c5e23750[style=solid];
+	Node0x55f1c5e23750 [shape=record,color=red,label="{CallICFGNode15 \{fun: main\}}"];
+	Node0x55f1c5e23750 -> Node0x55f1c5d78300[style=solid];
+	Node0x55f1c5d78300 [shape=record,color=blue,label="{RetICFGNode16 \{fun: main\}}"];
+	Node0x55f1c5d78300 -> Node0x55f1c5e23a60[style=solid];
+	Node0x55f1c5e23a60 [shape=record,color=black,label="{IntraICFGNode17 \{fun: main\}\n   ret i32 0 }"];
+	Node0x55f1c5e23a60 -> Node0x55f1c5e23c40[style=solid];
+	Node0x55f1c5e23c40 [shape=record,color=green,label="{FunExitICFGNode18 \{fun: main\}\nPhiStmt: [Var18 \<-- ([Var22, ICFGNode17],)]  \n   ret i32 0 }"];
+}

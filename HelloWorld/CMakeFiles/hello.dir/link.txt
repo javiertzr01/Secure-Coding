@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC -std=gnu++14 -O0 -fno-rtti -Wno-deprecated -g   CMakeFiles/hello.dir/hello.cpp.o  -o ../bin/hello   -L/home/SVF-tools/SVF/z3.obj/bin 

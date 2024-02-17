@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/SVF-tools/Teaching-Software-Verification/Assignment-1/Assignment-1.cpp
+Assignment-1.h
+/home/SVF-tools/Teaching-Software-Verification/Assignment-1/Assignment-1.h
+
+/home/SVF-tools/Teaching-Software-Verification/Assignment-1/Assignment-1.h
+iostream
+-
+set
+-
+vector
+-
+
